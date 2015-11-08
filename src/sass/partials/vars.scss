@@ -1,0 +1,15 @@
+// Colors
+$dark: #39313A;
+$black: lighten(black, 2%);
+$page_bg: darken(white, .85%);
+$header_bg: $dark;
+$hero_bg: darken($dark, 4%);
+
+// Sizes
+$header_height_desktop: 65px;
+$header_height_mobile: 45px;
+$max_header_width: 1200px;
+
+// Font
+$main_font: 'Open Sans', 'Arial', 'sans-serif';
+$alt_font: 'Montserrat', 'Arial', 'sans-serif';
