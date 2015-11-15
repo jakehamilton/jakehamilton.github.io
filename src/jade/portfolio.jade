@@ -1,0 +1,26 @@
+extends templates/boiler
+
+block css
+  link(rel="stylesheet" href="assets/css/portfolio.css")
+
+block title
+  | Portfolio
+
+block content
+  .projects
+    .projects-wrapper
+      .project-row
+        a(href="//beyondthefringeoc.com").project.beyondthefringe
+          .project-text
+            h2.title Beyond The Fringe OC
+            .description Beyond The Fringe OC provided a different set of challenges being that it is a beauty salon requiring both style and simplicity. I was tasked with creating a new, modern, and familiar design that is both desktop and mobile friendly to empower every customer.
+        a(href="//alanlewisinc.net").project.alanlewis
+          .project-text
+            h2.title Alan Lewis Inc.
+            h5.subtitle (Under Construction)
+            .description  Alan Lewis Inc. is a family owned and operated business built upon a stellar reputation of providing a superior product at competetive pricing for partitions, lockers, and hardware.
+      .project-row
+        a(href="//github.com/jakehamilton/node-twitch").project.twitchbot
+          .project-text
+            h2.title Twitch Chat Bot
+            .description Using Electron, Express, Angular, PouchDB, and lots of coffee, this chat bot popped into existence. As a native desktop application, it provides every potential user with the tools to moderate their chat on Twitch.tv&trade;.

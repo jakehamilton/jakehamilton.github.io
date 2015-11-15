@@ -179,7 +179,8 @@ html, body, .content {
   padding-top: 16px;
   padding-left: 8px;
   padding-right: 8px;
-  padding-bottom: 64px;
+  // padding-bottom: 64px;
+  padding-bottom: 8px;
   background: $cream;
 
   .contact-wrapper {
@@ -187,10 +188,24 @@ html, body, .content {
     width: 100%;
     max-width: 775px;
 
+    .email a {
+      color: darken(skyblue, 17%);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      @media screen and (max-width: $header_breakpoint) {
+        font-size: 65%;
+      }
+    }
+
     .title {
       font-size: 225%;
       font-weight: bold;
       font-family: $alt_font;
+      color: $dark;
     }
 
     .contact-form {
@@ -225,6 +240,24 @@ html, body, .content {
         border: none;
         outline: none;
         resize: none;
+        color: $white;
+        background: lighten($dark, 15%);
+
+        &::-webkit-input-placeholder {
+          color: darken($white, 5%);
+        }
+
+        &:moz-input-placeholder {
+          color: darken($white, 5%);
+        }
+
+        &::moz-input-placeholder {
+          color: darken($white, 5%);
+        }
+
+        &:-ms-input-placeholder {
+          color: darken($white, 5%);
+        }
       }
 
       input[type="text"],

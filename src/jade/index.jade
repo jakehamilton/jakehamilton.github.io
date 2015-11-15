@@ -48,18 +48,21 @@ block content
           .item AutoPrefixer
           .item Browser Sync
   .contact
-    .contact-wrapper
+    .contact-wrapper#contact
       h2.title
-        | Get in touch
-      form(action="").contact-form
-        .group
-          label(for="name") Name
-          input(type="text" placeholder="John Doe" required).name-input#name
-        .group
-          label(for="email") Email
-          input(type="email" placeholder="john@email.com" required).email-input#email
-        .group
-          label(for="message") Message
-          textarea(placeholder="Say what again..." required).body-input#message
-        button(type="submit").submit-button Send
+        | Get in touch: 
+        span.email
+          a(href="mailto:jehamilton122@gmail.com") jehamilton122@gmail.com
+      //- form(action="").contact-form
+      //-   .group
+      //-     label(for="name") Name
+      //-     input(type="text" placeholder="John Doe" required).name-input#name
+      //-   .group
+      //-     label(for="email") Email
+      //-     input(type="email" placeholder="john@email.com" required).email-input#email
+      //-   .group
+      //-     label(for="message") Message
+      //-     textarea(placeholder="Say what again..." required).body-input#message
+      //-   button(type="submit").submit-button Send
+      
   .clearfix
