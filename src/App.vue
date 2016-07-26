@@ -1,64 +1,87 @@
 <template>
   <div id="app">
-    <img class="logo" src="./assets/logo.png">
-    <hello></hello>
-    <p>
-      Welcome to your Vue.js app!
-    </p>
-    <p>
-      To get a better understanding of how this boilerplate works, check out
-      <a href="http://vuejs-templates.github.io/webpack" target="_blank">its documentation</a>.
-      It is also recommended to go through the docs for
-      <a href="http://webpack.github.io/" target="_blank">Webpack</a> and
-      <a href="http://vuejs.github.io/vue-loader/" target="_blank">vue-loader</a>.
-      If you have any issues with the setup, please file an issue at this boilerplate's
-      <a href="https://github.com/vuejs-templates/webpack" target="_blank">repository</a>.
-    </p>
-    <p>
-      You may also want to checkout
-      <a href="https://github.com/vuejs/vue-router/" target="_blank">vue-router</a> for routing and
-      <a href="https://github.com/vuejs/vuex/" target="_blank">vuex</a> for state management.
-    </p>
+    <fullscreen-stars :follow="mouse" class="stars"></fullscreen-stars>
+    <div class="page">
+      <side-nav :routes="routes" class="nav"></side-nav>
+      <div class="view">
+        <router-view></router-view>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+  import SideNav from 'components/Side-Nav'
+  import FullscreenStars from 'components/Fullscreen-Stars'
 
-export default {
-  components: {
-    Hello
+  export default {
+    data () {
+      return {
+        mouse: { x: -999, y: -999 },
+        routes: {
+          projects: [
+            { path: '/blink', name: 'blink' }
+          ],
+          info: [
+            { path: '/resume', name: 'resume' },
+            { path: '/contact', name: 'contact' }
+          ]
+        }
+      }
+    },
+    attached () {
+      window.addEventListener('mousemove', event => {
+        this.mouse.x = event.pageX
+        this.mouse.y = event.pageY
+      }, true)
+    },
+    components: {
+      SideNav,
+      FullscreenStars
+    }
   }
-}
 </script>
 
-<style>
-html {
-  height: 100%;
-}
+<style lang="stylus">
+  *
+  *:before
+  *:after
+    box-sizing border-box
 
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
+  html
+  body
+    width 100%
+    height 100%
 
-#app {
-  color: #2c3e50;
-  margin-top: -100px;
-  max-width: 600px;
-  font-family: Source Sans Pro, Helvetica, sans-serif;
-  text-align: center;
-}
+  body
+    margin 0
+    font-size 16px
+    font-family Source Sans Pro, Helvetica, Arial, Sans-Serif
 
-#app a {
-  color: #42b983;
-  text-decoration: none;
-}
+  #app
+    position relative
+    width 100%
+    height 100%
+    overflow hidden
 
-.logo {
-  width: 100px;
-  height: 100px
-}
+  .stars
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 100%
+
+  .page
+    display flex
+    width 100%
+    height 100%
+
+  .nav
+    height 100%
+    flex-grow 0
+    flex-shrink 0
+
+  .view
+    flex-grow 1
+    overflow auto
 </style>

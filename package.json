@@ -13,7 +13,9 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "babel-preset-stage-0": "^6.5.0",
     "babel-runtime": "^6.0.0",
+    "lodash.debounce": "^4.0.7",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.1.1",
     "vue": "^1.0.21",
