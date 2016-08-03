@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <fullscreen-stars :follow="mouse" class="stars"></fullscreen-stars>
+    <fullscreen-visualizer class="visualizer"></fullscreen-visualizer>
     <div class="page">
+      <mobile-nav :routes="routes" class="mobile-nav"></mobile-nav>
       <side-nav :routes="routes" class="nav"></side-nav>
       <div class="view">
         <router-view></router-view>
@@ -12,7 +14,9 @@
 
 <script>
   import SideNav from 'components/Side-Nav'
+  import MobileNav from 'components/Mobile-Nav'
   import FullscreenStars from 'components/Fullscreen-Stars'
+  import FullscreenVisualizer from 'components/Fullscreen-Visualizer'
 
   export default {
     data () {
@@ -33,11 +37,13 @@
       window.addEventListener('mousemove', event => {
         this.mouse.x = event.pageX
         this.mouse.y = event.pageY
-      }, true)
+      })
     },
     components: {
       SideNav,
-      FullscreenStars
+      MobileNav,
+      FullscreenStars,
+      FullscreenVisualizer
     }
   }
 </script>
@@ -65,6 +71,7 @@
     overflow hidden
 
   .stars
+  .visualizer
     position absolute
     top 0
     left 0
@@ -84,4 +91,8 @@
   .view
     flex-grow 1
     overflow auto
+    padding-bottom 30px
+
+    @media screen and (max-width 865px)
+      padding-top 32px
 </style>

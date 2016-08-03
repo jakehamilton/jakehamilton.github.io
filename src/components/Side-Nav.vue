@@ -35,6 +35,9 @@
     padding 24px
     width 107px + (24px * 2)
 
+    @media screen and (max-width 865px)
+      display none
+
     h1
       margin-top 16px
       margin-bottom 0

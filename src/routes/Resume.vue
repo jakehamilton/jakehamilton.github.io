@@ -22,6 +22,11 @@
     margin 0 auto
     transform translateX(-107px / 2) // Exact size of the side-nav
 
+    @media screen and (max-width 865px)
+      transform translateX(0)
+      padding-left 16px
+      padding-right 16px
+
   .categories
     display flex
     padding-top 4px

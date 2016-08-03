@@ -1,9 +1,9 @@
 <template>
   <div class="contact">
-    <messages :messages="messages"></messages>
+    <messages :messages="messages" class="messages"></messages>
     <div class="input">
       <span>></span>
-      <input type="text" v-model="command" @keyup.enter="submit" autofocus>
+      <input type="text" v-model="command" @keyup.enter="submit">
     </div>
   </div>
 </template>
@@ -91,6 +91,7 @@
     align-items center
     line-height 1em
     font-size 1em
+    z-index 85
 
     span
       padding-right 8px
@@ -107,4 +108,7 @@
 
       &:focus
         outline none
+
+  .messages
+    z-index 85
 </style>

@@ -40,20 +40,21 @@
         this.ctx.lineWidth = 0.15
       },
       tick () {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+        if (this.canvas.width > 865) {
+          this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
 
-        for (let dot of this.dots) {
-          dot.move(this.canvas)
-          dot.draw(this.ctx)
+          for (let dot of this.dots) {
+            dot.move(this.canvas)
+            dot.draw(this.ctx)
 
-          if (dot.near(this.follow)) {
-            for (let _dot of this.dots) {
-              if (_dot === dot) continue
-              if (dot.near(_dot.pos)) line(dot.pos, _dot.pos, this.ctx)
+            if (dot.near(this.follow)) {
+              for (let _dot of this.dots) {
+                if (_dot === dot) continue
+                if (dot.near(_dot.pos)) line(dot.pos, _dot.pos, this.ctx)
+              }
             }
           }
         }
-
         window.requestAnimationFrame(::this.tick)
       }
     },
